@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         )
+                        .setTheme(R.style.LoginTheme)
+                        .setLogo(R.mipmap.logo)
                         .build(),
                 RC_SIGN_IN);
 
