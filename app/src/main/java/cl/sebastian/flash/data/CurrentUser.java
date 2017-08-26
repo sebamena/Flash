@@ -1,4 +1,4 @@
-package cl.sebastian.flash;
+package cl.sebastian.flash.data;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

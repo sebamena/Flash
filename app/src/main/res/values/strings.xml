@@ -14,4 +14,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string name="sign_in_with_google" translation_description="Sign in button text">Inicia sesión con Google</string>
+    <string name="sign_in_with_facebook" translation_description="Sign in button text">Inicia sesión con Facebook</string>
+    <string name="sign_in_with_twitter" translation_description="Sign in button text">Inicia sesión con Twitter</string>
+    <string name="sign_in_with_email" translation_description="Sign in button text">Inicia sesión con email</string>
+
 </resources>

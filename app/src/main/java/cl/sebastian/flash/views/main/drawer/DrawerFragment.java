@@ -1,4 +1,4 @@
-package cl.sebastian.flash;
+package cl.sebastian.flash.views.main.drawer;
 
 
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.widget.TextView;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import cl.sebastian.flash.R;
+import cl.sebastian.flash.data.CurrentUser;
+import cl.sebastian.flash.views.login.LoginActivity;
 
 
 /**
