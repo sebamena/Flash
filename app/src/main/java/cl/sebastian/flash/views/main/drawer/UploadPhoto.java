@@ -10,7 +10,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import cl.sebastian.flash.data.CurrentUser;
+import cl.sebastian.flash.data.Nodes;
 import cl.sebastian.flash.data.PhotoPreference;
+import cl.sebastian.flash.models.LocalUser;
 
 /**
  * Created by Sebastián Mena on 01-09-2017.
@@ -26,7 +28,7 @@ public class UploadPhoto {
 
     public void toFirebase(String path){
 
-        CurrentUser currentUser = new CurrentUser();
+        final CurrentUser currentUser = new CurrentUser();
         String folder = currentUser.sanitizedEmail(currentUser.email()+"/");
         String photoName = "avatar.jpg";
         String baseUrl = "gs://flash-540d5.appspot.com/avatars/";
@@ -39,8 +41,17 @@ public class UploadPhoto {
                 String[] fullUrl = taskSnapshot.getDownloadUrl().toString().split("&token");
                 String url = fullUrl[0];
                 Log.e("URL",url);
-
                 new PhotoPreference(context).photoSave(url);
+
+                LocalUser user = new LocalUser();
+                user.setEmail(currentUser.email());
+                user.setName(currentUser.getCurrentuser().getDisplayName());
+                user.setPhoto(url);
+                user.setUid(currentUser.uid());
+                String key = currentUser.sanitizedEmail(currentUser.email());
+                new Nodes().user(key).setValue(user);
+
+
             }
         });
 
