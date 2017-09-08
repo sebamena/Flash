@@ -28,7 +28,7 @@ dependencies {
     compile('com.frosquivel:magicalcamera:5.0.5@aar') {
         transitive = false;
     }
-
+    compile 'com.github.ybq:Android-SpinKit:1.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
