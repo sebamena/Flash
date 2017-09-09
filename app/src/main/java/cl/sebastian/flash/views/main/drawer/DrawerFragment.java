@@ -113,7 +113,7 @@ public class DrawerFragment extends Fragment implements PhotoCallback{
         if (RESULT_OK == resultCode){
 
             Bitmap photo = magicalCamera.getPhoto();
-            String path = magicalCamera .savePhotoInMemoryDevice(photo,"avatar","flash",MagicalCamera.JPEG,true);
+            String path = magicalCamera.savePhotoInMemoryDevice(photo,"avatar","flash",MagicalCamera.JPEG,true);
 
             path = "file://"+path;
             setPhoto(path);
