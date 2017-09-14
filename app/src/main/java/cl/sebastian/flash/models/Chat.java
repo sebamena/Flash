@@ -1,13 +1,16 @@
 package cl.sebastian.flash.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Sebastián Mena on 08-09-2017.
  */
 
-public class Chat {
+public class Chat implements Serializable {
 
-    private String photo,receiver,key;
+    private String photo,receiver,key,uid;
     private boolean notification;
+    private long timestamp;
 
     public Chat() {
     }
@@ -42,5 +45,21 @@ public class Chat {
 
     public void setNotification(boolean notification) {
         this.notification = notification;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

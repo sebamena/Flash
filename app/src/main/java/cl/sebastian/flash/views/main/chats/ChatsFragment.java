@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import cl.sebastian.flash.R;
 import cl.sebastian.flash.adapters.ChatsAdapter;
 import cl.sebastian.flash.adapters.ChatsListener;
+import cl.sebastian.flash.models.Chat;
 import cl.sebastian.flash.views.chat.ChatActivity;
 
 /**
@@ -22,10 +23,11 @@ import cl.sebastian.flash.views.chat.ChatActivity;
  */
 public class ChatsFragment extends Fragment implements ChatsListener {
 
-    public static final String CHAT_KEY = "cl.sebastian.flash.views.main.chats.KEY.CHAT_KEY";
-    public static final String CHAT_RECEIVER = "cl.sebastian.flash.views.main.chats.KEY.CHAT_RECEIVER";
+    //public static final String CHAT_KEY = "cl.sebastian.flash.views.main.chats.KEY.CHAT_KEY";
+    public static final String CHAT = "cl.sebastian.flash.views.main.chats.KEY.CHAT";
 
     RecyclerView recyclerView;
+    private ChatsAdapter adapter;
 
 
     public ChatsFragment() {
@@ -56,7 +58,7 @@ public class ChatsFragment extends Fragment implements ChatsListener {
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setHasFixedSize(true);
 
-        ChatsAdapter adapter = new ChatsAdapter(this);
+        adapter = new ChatsAdapter(this);
 
         recyclerView.setAdapter(adapter);
 
@@ -66,13 +68,16 @@ public class ChatsFragment extends Fragment implements ChatsListener {
     }
 
     @Override
-    public void clicked(String key, String mail) {
-        //Toast.makeText(getContext(),mail,Toast.LENGTH_SHORT).show();
-
+    public void clicked(Chat chat) {
         Intent intent = new Intent(getActivity(), ChatActivity.class);
-        intent.putExtra(CHAT_KEY,key);
-        intent.putExtra(CHAT_RECEIVER,mail);
+        intent.putExtra(CHAT,chat);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.cleanup();
 
     }
 }
